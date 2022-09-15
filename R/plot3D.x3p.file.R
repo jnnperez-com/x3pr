@@ -95,7 +95,8 @@ plot3D.x3p.file<-function(x3p.surf.file.info, num.x.pts=NULL, num.slices=NULL, a
   } else if(plot.type=="surface") {
     
     nbcol = 256
-    color = rev(rainbow(nbcol, start = 0/6, end = 2/6)) #Color band width
+    color = gray(0:8 / 8)
+    #rev(rainbow(nbcol, start = 0/6, end = 2/6)) #Color band width
     #zcol  = cut(t(decimated.surf.mat), nbcol)   
     zcol  = cut(decimated.surf.mat, nbcol)   
     #persp3d(xaxis, yaxis, t(decimated.surf.mat), aspect=aspect, col=color[zcol])

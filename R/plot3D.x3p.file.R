@@ -94,15 +94,16 @@ plot3D.x3p.file<-function(x3p.surf.file.info, num.x.pts=NULL, num.slices=NULL, a
     
   } else if(plot.type=="surface") {
     
-    nbcol = 256
+    nbcol = gray(0:8 / 8) #256
     color = gray(0:8 / 8)
-    #rev(rainbow(nbcol, start = 0/6, end = 2/6)) #Color band width
+#rev(rainbow(nbcol, start = 0/6, end = 2/6)) #Color band width
     #zcol  = cut(t(decimated.surf.mat), nbcol)   
     zcol  = cut(decimated.surf.mat, nbcol)   
     #persp3d(xaxis, yaxis, t(decimated.surf.mat), aspect=aspect, col=color[zcol])
     
     #Swap x and y axes to put origin in top left corner (image coordinates)
     rgl.plot.obj <- persp3d(yaxis, xaxis, decimated.surf.mat, aspect=aspect, col=color[zcol])
+
     
     #coords<-cbind(expand.grid(X=xaxis, Y=yaxis), as.numeric(t(decimated.surf.mat)))
     #return(list(rgl.plot.obj, coords))
